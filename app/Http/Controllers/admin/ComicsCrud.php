@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -81,13 +82,13 @@ class ComicsCrud extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ComicRequest $request, $id)
     {
-        $data = $request->all();
-        $comic = Comic::findOrFail($id);
-        $comic->update($data);      
-        $comic->save();
+        $data=$request->validated();
+        $comic = Comic::findOrFail($id); 
+        $comic->update($data);            
         return redirect()->route('comic.show', $comic->id);
+      
     }
 
     /**

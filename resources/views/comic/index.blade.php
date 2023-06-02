@@ -5,8 +5,8 @@
 
         <h3>i nostri comics</h3>
 
-        <div class="container d-flex flex-wrap text-center">
-            <div class="row row-cols-4">
+        <div class="container d-flex flex-wrap text-center ">
+            <div class="row row-cols-4 d-flex">
                 @foreach ($comics as $comic)
                     <div class="col g-3">
                         <div class="card p-4 border-0" >
